@@ -6,11 +6,18 @@ import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.demo.androidtest.R
 import com.demo.androidtest.base.SingleLiveEvent
+import com.demo.androidtest.data.remote.repository.AuthRepository
+import com.demo.androidtest.data.remote.result.Resource
+import com.demo.androidtest.ui.login.model.ReqLoginModel
+import com.demo.androidtest.ui.login.model.ResLoginModel
 import com.demo.androidtest.utils.*
+import kotlinx.coroutines.launch
 
-class LoginViewModel(application: Application) : AndroidViewModel(application) {
+class LoginViewModel(application: Application, private val authRepository: AuthRepository) :
+    AndroidViewModel(application) {
 
 
     var userName: MutableLiveData<String> = MutableLiveData<String>().apply { value = "" }
@@ -20,12 +27,15 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     var passwordError = MutableLiveData<String?>().apply { value = "" }
 
     val showSnackBar = SingleLiveEvent<Int>()
+    val loginLiveData = SingleLiveEvent<Resource<ResLoginModel>>()
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun onLoginClick(view: View) {
         if (isNetworkAvailable(getApplication())) {
             KeyboardUtils.hideKeyboard(view)
-            validateFields()
+            if (validateFields()) {
+                callLogin()
+            }
         } else {
             showSnackBar.postValue(R.string.error_message_network)
         }
@@ -45,4 +55,14 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         return isValidate
     }
 
+    private fun callLogin() {
+
+        viewModelScope.launch {
+            authRepository.login(
+                loginLiveData,
+                ReqLoginModel(username = userName.value, password = password.value)
+            )
+        }
+
+    }
 }

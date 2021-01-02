@@ -1,15 +1,14 @@
-package com.demo.testapp.injections
+package com.demo.androidtest.injections
 
 
+import com.demo.androidtest.data.remote.repository.AuthRepository
 import org.koin.dsl.module.module
 
 val repositoryModule = module {
 
 
-    //add all repo dependency
-//    single {
-//        UserRepository(get(), get())//it will take two argument ApiInterface and PreferenceManager
-//    }
-
+    single {
+        AuthRepository(get(), get())//it will take two argument ApiInterface and PreferenceManager
+    }
 
 }

@@ -9,4 +9,5 @@
     <string name="error_empty_username">Please enter username.</string>
     <string name="error_valid_username">User name must have least 2 character.</string>
     <string name="error_message_network">Please check your internet connection.</string>
+    <string name="message_user_add_success">User add successfully.</string>
 </resources>
