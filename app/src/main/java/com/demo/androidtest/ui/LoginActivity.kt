@@ -41,6 +41,7 @@ class LoginActivity : AppCompatActivity() {
                 when (this) {
                     is Resource.Success -> {
                         ProgressUtils.closeProgressDialog()
+                        viewModel.clearFiled()
                         root.showSnackBar(getString(R.string.message_user_add_success))
                     }
                     is Resource.Error -> {

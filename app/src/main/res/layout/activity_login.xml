@@ -50,6 +50,7 @@
                 android:hint="@string/hint_user_name"
                 android:text="@={viewModel.userName}"
                 android:inputType="textCapWords"
+                android:nextFocusDown="@id/edPassword"
                 android:maxLength="@integer/max_length_user_name" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,8 +75,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_password"
+                android:imeOptions="actionDone"
                 android:inputType="textCapWords"
                 android:text="@={viewModel.password}"
+                app:onEditorAction="@{viewModel.onEditorActionListener}"
                 android:maxLength="@integer/max_length_pass_word" />
         </com.google.android.material.textfield.TextInputLayout>
 

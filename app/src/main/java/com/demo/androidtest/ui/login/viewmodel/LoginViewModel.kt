@@ -3,14 +3,16 @@ package com.demo.androidtest.ui.login.viewmodel
 import android.app.Application
 import android.os.Build
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.demo.androidtest.R
 import com.demo.androidtest.base.SingleLiveEvent
-import com.demo.androidtest.data.repository.AuthRepository
 import com.demo.androidtest.data.remote.result.Resource
+import com.demo.androidtest.data.repository.AuthRepository
 import com.demo.androidtest.ui.login.model.ReqLogin
 import com.demo.androidtest.ui.login.model.ResLogin
 import com.demo.androidtest.utils.*
@@ -42,6 +44,18 @@ class LoginViewModel(application: Application, private val authRepository: AuthR
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun getOnEditorActionListener(): TextView.OnEditorActionListener {
+        return TextView.OnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                onLoginClick(v)
+                true
+            } else {
+                false
+            }
+        }
+    }
+
     //validate login fields
     private fun validateFields(): Boolean {
 
@@ -65,5 +79,10 @@ class LoginViewModel(application: Application, private val authRepository: AuthR
             )
         }
 
+    }
+//  Clear filed when login successfully
+    fun clearFiled() {
+        userName.value = ""
+        password.value = ""
     }
 }
