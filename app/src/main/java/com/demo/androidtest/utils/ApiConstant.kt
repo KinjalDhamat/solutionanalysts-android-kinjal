@@ -2,6 +2,7 @@ package com.demo.androidtest.utils
 
 object ApiConstant {
     const val BASE_URL = "http://private-222d3-homework5.apiary-mock.com/api/"
+    const val X_ACC_HEADER = "X-Acc"
 
     const val HEADER_NAME_IMSI = "IMSI"
     const val HEADER_NAME_IMEI = "IMEI"

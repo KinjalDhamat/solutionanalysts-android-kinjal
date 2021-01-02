@@ -9,10 +9,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.demo.androidtest.R
 import com.demo.androidtest.base.SingleLiveEvent
-import com.demo.androidtest.data.remote.repository.AuthRepository
+import com.demo.androidtest.data.repository.AuthRepository
 import com.demo.androidtest.data.remote.result.Resource
-import com.demo.androidtest.ui.login.model.ReqLoginModel
-import com.demo.androidtest.ui.login.model.ResLoginModel
+import com.demo.androidtest.ui.login.model.ReqLogin
+import com.demo.androidtest.ui.login.model.ResLogin
 import com.demo.androidtest.utils.*
 import kotlinx.coroutines.launch
 
@@ -27,7 +27,8 @@ class LoginViewModel(application: Application, private val authRepository: AuthR
     var passwordError = MutableLiveData<String?>().apply { value = "" }
 
     val showSnackBar = SingleLiveEvent<Int>()
-    val loginLiveData = SingleLiveEvent<Resource<ResLoginModel>>()
+
+    val loginLiveData = SingleLiveEvent<Resource<ResLogin>>()
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun onLoginClick(view: View) {
@@ -60,7 +61,7 @@ class LoginViewModel(application: Application, private val authRepository: AuthR
         viewModelScope.launch {
             authRepository.login(
                 loginLiveData,
-                ReqLoginModel(username = userName.value, password = password.value)
+                ReqLogin(username = userName.value, password = password.value)
             )
         }
 

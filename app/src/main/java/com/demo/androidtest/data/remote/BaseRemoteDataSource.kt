@@ -8,7 +8,7 @@ import org.json.JSONObject
 import retrofit2.Response
 import java.net.ConnectException
 
-open class AppDataSource {
+open class BaseRemoteDataSource {
 
     suspend fun <T : BaseResult> apiCall(call: suspend () -> Response<T>): BaseResult? {
         val result: Resource<T> = safeApiResult(call)
@@ -26,7 +26,9 @@ open class AppDataSource {
             val response = call.invoke()
             if (response.isSuccessful) {
                 if (response.body() != null && response.body() is BaseResult) {
+
                     val baseResult = response.body() as BaseResult
+                    baseResult.headers = response.headers()
                     return if (response.code() == 200) {
                         Resource.Success(response.body()!!)
                     } else {

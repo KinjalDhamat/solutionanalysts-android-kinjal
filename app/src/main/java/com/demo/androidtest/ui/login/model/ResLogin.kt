@@ -4,12 +4,13 @@ import androidx.annotation.Keep
 import com.demo.androidtest.data.remote.result.BaseResult
 
 @Keep
-class ResLoginModel(
+class ResLogin(
     val user: User? = null
-) : BaseResult()
+) : BaseResult() {
+    @Keep
+    data class User(
+        val userName: String? = null,
+        val userId: Int? = null
+    )
+}
 
-@Keep
-data class User(
-    val userName: String? = null,
-    val userId: String? = null
-)
