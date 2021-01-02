@@ -1,10 +1,50 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+
+    <style name="TextInputLayoutWhite" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/color_input_filed_stroke</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="boxStrokeErrorColor">@android:color/white</item>
+        <item name="colorButtonNormal">@android:color/white</item>
+        <item name="hintTextColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="errorTextAppearance">@style/TextErrorAppearance</item>
+    </style>
+
+    <style name="TextErrorAppearance" parent="TextAppearance.Design.Error">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/fontSizeHint</item>
+    </style>
+
+    <style name="StyleTextInputEditText">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/fontSizeHint</item>
+    </style>
+
+
+    <style name="StyleButton" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/fontSizeHint</item>
+        <item name="elevation">20dp</item>
+        <item name="android:shadowColor">@color/colorBlue</item>
+        <item name="cornerRadius">25dp</item>
+    </style>
 </resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fontSizeHint">14sp</dimen>
+    <dimen name="fontSizeTitle">40sp</dimen>
+
+    <dimen name="spacingMedium">20dp</dimen>
+    <dimen name="spacingLarge">30dp</dimen>
+    <dimen name="spacingXLarge">40dp</dimen>
+</resources>

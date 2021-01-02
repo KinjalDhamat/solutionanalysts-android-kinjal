@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidTest</string>
+    <string name="label_anroid_test">AnroidTest</string>
+    <string name="hint_user_name">UserName</string>
+    <string name="hint_password">Password</string>
+    <string name="label_login">Login</string>
 </resources>
