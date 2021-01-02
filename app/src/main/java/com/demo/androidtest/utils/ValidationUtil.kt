@@ -3,6 +3,9 @@ package com.demo.androidtest.utils
 import com.demo.androidtest.R
 import java.util.regex.Pattern
 
+//*
+// This function use to validate username
+// */
 fun isUserNameValid(userName: String?): Int {
 
     if (userName == null || userName.trim().isEmpty()) {
@@ -13,6 +16,9 @@ fun isUserNameValid(userName: String?): Int {
     return 0
 }
 
+//*
+// This function use to validate password
+// */
 fun isPasswordValid(password: String?): Int {
     val expression = "^(?=.*[0-9])(?=.*[a-z]).{8,}"
     val pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)

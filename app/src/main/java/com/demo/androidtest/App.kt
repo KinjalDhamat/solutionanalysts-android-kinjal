@@ -27,7 +27,7 @@ class App : Application() {
     private fun iniKoinModules() {
         startKoin(
             this,
-            listOf(appModule,repositoryModule,  viewModelModule, networkModule, dataBaseModule)
+            listOf(appModule, repositoryModule, viewModelModule, networkModule, dataBaseModule)
         )
     }
 

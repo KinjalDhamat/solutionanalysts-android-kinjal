@@ -1,7 +1,8 @@
 package com.demo.androidtest.data.repository
 
-import AuthLocalDataSource
+
 import androidx.lifecycle.MutableLiveData
+import com.demo.androidtest.data.local.AuthLocalDataSource
 import com.demo.androidtest.data.local.model.User
 import com.demo.androidtest.data.remote.ApiInterface
 import com.demo.androidtest.data.remote.BaseRemoteDataSource

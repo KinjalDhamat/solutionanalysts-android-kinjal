@@ -1,6 +1,6 @@
 package com.demo.androidtest.injections
 
-import AuthLocalDataSource
+import com.demo.androidtest.data.local.AuthLocalDataSource
 import androidx.room.Room
 import com.demo.androidtest.data.local.AppDatabase
 import com.demo.androidtest.utils.AppConstant.DATABASE_NAME
@@ -22,6 +22,6 @@ val dataBaseModule = module {
     }
 
     single {
-        AuthLocalDataSource(get(), get())
+        AuthLocalDataSource(get())
     }
 }

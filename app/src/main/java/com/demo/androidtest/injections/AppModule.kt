@@ -3,7 +3,6 @@ package com.demo.androidtest.injections
 import android.content.Context
 import android.content.SharedPreferences
 import com.demo.androidtest.utils.AppConstant.PREFERENCE
-import com.demo.androidtest.utils.PreferenceManager
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module.module
 
@@ -14,10 +13,6 @@ val appModule = module {
             PREFERENCE,
             Context.MODE_PRIVATE
         )
-    }
-    // Dependency: PreferenceManger
-    single {
-        PreferenceManager(get())
     }
 
 }

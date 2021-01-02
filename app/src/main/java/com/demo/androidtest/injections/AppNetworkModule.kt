@@ -3,6 +3,8 @@ package com.demo.androidtest.injections
 import android.util.Log
 import com.demo.androidtest.data.remote.ApiInterface
 import com.demo.androidtest.utils.ApiConstant
+import com.demo.androidtest.utils.ApiConstant.HEADER_CONTENT_TYPE
+import com.demo.androidtest.utils.ApiConstant.HEADER_CONTENT_TYPE_JSON
 import com.demo.androidtest.utils.ApiConstant.HEADER_NAME_IMEI
 import com.demo.androidtest.utils.ApiConstant.HEADER_NAME_IMSI
 import com.demo.androidtest.utils.getIMEINumber
@@ -50,8 +52,8 @@ val networkModule = module {
             chain.proceed(
                 chain.request().newBuilder()
                     .addHeader(
-                        "Content-Type",
-                        "application/json"
+                        HEADER_CONTENT_TYPE,
+                        HEADER_CONTENT_TYPE_JSON
                     ).addHeader(
                         HEADER_NAME_IMSI, getIMEINumber()
                     ).addHeader(

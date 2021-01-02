@@ -6,6 +6,8 @@ object ApiConstant {
 
     const val HEADER_NAME_IMSI = "IMSI"
     const val HEADER_NAME_IMEI = "IMEI"
+    const val HEADER_CONTENT_TYPE = "Content-Type"
+    const val HEADER_CONTENT_TYPE_JSON = "application/json"
 
     const val TIME_OUT_CONNECTION = "Cannot connect to server.\nPlease try again later."
     const val TIME_OUT_CONNECTION_STATUS = "504"

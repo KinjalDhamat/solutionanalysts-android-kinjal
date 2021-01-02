@@ -4,6 +4,9 @@ import android.app.Dialog
 import android.content.Context
 import com.demo.androidtest.R
 
+/*
+* Progress indicator use duaring api call
+* */
 object ProgressUtils {
 
     private var progressDialog: Dialog? = null
