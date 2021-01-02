@@ -4,4 +4,9 @@
     <string name="hint_user_name">UserName</string>
     <string name="hint_password">Password</string>
     <string name="label_login">Login</string>
+    <string name="error_valid_password">Your password must contain a minimum of eight characters, including lowercase letters and one or more numbers.</string>
+    <string name="error_empty_password">Please enter password.</string>
+    <string name="error_empty_username">Please enter username.</string>
+    <string name="error_valid_username">User name must have least 2 character.</string>
+    <string name="error_message_network">Please check your internet connection.</string>
 </resources>

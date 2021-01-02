@@ -17,7 +17,6 @@
     <style name="TextInputLayoutWhite" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">@color/color_input_filed_stroke</item>
         <item name="errorIconDrawable">@null</item>
-        <item name="boxStrokeErrorColor">@android:color/white</item>
         <item name="colorButtonNormal">@android:color/white</item>
         <item name="hintTextColor">@android:color/white</item>
         <item name="android:textColorHint">@android:color/white</item>
